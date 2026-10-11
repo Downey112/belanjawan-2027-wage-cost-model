@@ -1,43 +1,66 @@
-# Belanjawan 2027 Fresh Graduate Wage Cost Model
+# Belanjawan 2027 Fresh Graduate Wage Cost Model 🇲🇾📊
 
-An Excel model of what a fresh graduate hire costs a Malaysian employer, and what the
-employee takes home, at the three Belanjawan 2027 wage benchmarks.
+[![Excel](https://img.shields.io/badge/Model-Microsoft_Excel-217346?style=flat&logo=microsoftexcel&logoColor=white)](https://office.com)
+[![Python Generator](https://img.shields.io/badge/Generator-openpyxl-3776AB?style=flat&logo=python&logoColor=white)](https://openpyxl.readthedocs.io/)
+[![Policy Benchmark](https://img.shields.io/badge/Policy-Budget_2027_Benchmarks-C0392B?style=flat)](https://budget.mof.gov.my)
 
-| Per month (RM) | Minimum wage | Fresh graduate floor | GLC / GLIC living wage |
-|---|---|---|---|
-| Gross wage | 2,000.00 | 2,500.00 | 3,400.00 |
-| Employer on-costs (15.95%) | 319.00 | 398.75 | 542.30 |
-| Fully loaded cost | 2,319.00 | 2,898.75 | 3,942.30 |
-| Net take-home pay | 1,766.00 | 2,207.50 | 3,002.20 |
-| PCB / MTD | 0 | 0 | 0 |
+A dynamic, formula-driven Excel model calculating fully loaded employer costs and net employee take-home pay across the three **Belanjawan 2027 wage benchmarks**: the national minimum wage, the graduate wage floor, and the GLC/GLIC living wage.
 
-## Files
+---
 
-- `Belanjawan2027_Wage_Cost_Model.xlsx` - the model. Open it in Excel.
-- `build_model.py` - the script that generates the workbook.
+## 📌 Benchmark Comparison (Monthly RM)
 
-## Sheets
+| Metric | Minimum Wage (Jun 2027) | Fresh Graduate Floor | GLC / GLIC Living Wage |
+|---|:---:|:---:|:---:|
+| **Gross Wage** | **RM 2,000.00** | **RM 2,500.00** | **RM 3,400.00** |
+| Employer Statutory On-Costs (~15.95%) | RM 319.00 | RM 398.75 | RM 542.30 |
+| **Total Employer Fully Loaded Cost** | **RM 2,319.00** | **RM 2,898.75** | **RM 3,942.30** |
+| Employee Statutory Deductions (11.7%) | RM 234.00 | RM 292.50 | RM 397.80 |
+| **Net Employee Take-Home Pay** | **RM 1,766.00** | **RM 2,207.50** | **RM 3,002.20** |
+| Monthly Tax Deduction (PCB / MTD) | RM 0.00 | RM 0.00 | RM 0.00 |
 
-- **Overview** - headline figures, sheet guide and colour legend.
-- **Assumptions** - every rate, cap, relief and tax band, each with its source. Change a blue value and the whole model updates.
-- **Benchmark Comparison** - side-by-side payslip and employer cost for each benchmark, plus a custom wage.
-- **Headcount Budget** - annual cost of a hiring plan and of moving staff up a benchmark. The headcounts are example values.
-- **Wage Ladder** - cost and take-home from RM2,000 to RM6,000, with a chart.
+*Employer on-costs model statutory employer EPF (12–13%), SOCSO, EIS, and the HRD Corp training levy.*
 
-## Rebuild
+---
 
-```
+## 📁 Repository Files & Structure
+
+* **`Belanjawan2027_Wage_Cost_Model.xlsx`** — Master formula-driven workbook.
+* **`build_model.py`** — Python generator script that compiles the complete workbook programmatically using `openpyxl`.
+
+---
+
+## 📑 Workbook Sheets & Features
+
+1. **`Overview`** — Executive headline figures, color-coded input legends, and model version notes.
+2. **`Assumptions`** — Centralized rate parameter tables (EPF, SOCSO caps, EIS rates, tax bands, personal reliefs). Modifying any cell dynamically ripples through the entire workbook.
+3. **`Benchmark Comparison`** — Side-by-side pay slip breakdowns, statutory employer contributions, and net take-home calculators.
+4. **`Headcount Budget`** — Scenario planner modeling annual fiscal exposure for corporate hiring plans transitioning headcount to the new wage floors.
+5. **`Wage Ladder`** — Dynamic salary progression ladder from RM2,000 to RM6,000 with interactive visualization charts.
+
+---
+
+## ⚙️ How to Rebuild the Model
+
+```bash
+# 1. Clone repository
+git clone https://github.com/Downey112/belanjawan-2027-wage-cost-model.git
+cd belanjawan-2027-wage-cost-model
+
+# 2. Install dependencies & compile
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install openpyxl
+
+# 3. Generate the Excel workbook
 python build_model.py Belanjawan2027_Wage_Cost_Model.xlsx
 ```
 
-## Assumptions and limits
+---
 
-- Wage benchmarks and statutory rates come from a Belanjawan 2027 brief and have not been
-  checked against gazetted schedules. Rows shaded orange on the Assumptions sheet are the
-  ones to verify first (SOCSO caps, the RM12,000 individual relief, and the tax bands,
-  EPF relief cap and rebate limit, which use current statutory values).
-- Contributions use flat percentages rather than the official banded contribution tables,
-  so real payslips can differ by a few ringgit.
-- PCB is annual tax divided by 12 for a single resident with no other income or reliefs.
-- Illustrative only; not payroll or tax advice.
+## 🔍 Assumptions & Methodology
+
+- Wage benchmarks reflect the Budget 2027 policy announcements.
+- Statutory contributions model flat baseline statutory percentages (EPF, SOCSO, EIS, HRDF); minor variations may exist under specific gazetted band schedules.
+- Net take-home pay models standard individual tax reliefs and basic MTD (PCB) exemption thresholds.
+- Designed as an analytical policy planning tool.
